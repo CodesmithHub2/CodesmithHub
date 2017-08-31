@@ -26,8 +26,11 @@ class MainPage extends Component {
     selectedPage: 'Login',
     user: {},
     selectedUser: {},
+<<<<<<< HEAD
+=======
     addFeed: null,
     logout: false,
+>>>>>>> acf75495fc5147bdd81027a59f5a4e82b5eea395
   };
 
   changeView = (buttonName) => {
@@ -36,9 +39,9 @@ class MainPage extends Component {
   }
 
   changeTag = (e) => {
-    const tag = e.target.innerHTML.split('--')[2].slice(1,-2)
+    const tag = e.target.innerHTML.split('--')[2].slice(1, -2)
     this.setState({
-     selectedPage: tag
+      selectedPage: tag
     })
     console.log('Current tag swapped to: ', tag)
   }
@@ -65,9 +68,7 @@ class MainPage extends Component {
   }
 
   updateFeed = (newFeed) => {
-    this.setState({
-      addFeed: newFeed
-    })
+    console.log(newFeed)
   }
 
   viewProfile = (userID) => {
@@ -87,16 +88,16 @@ class MainPage extends Component {
     this.setState({ selectedPage: 'Feed', user: this.props.location.state.from });
 
     axios.get('/user/all')
-    .then((response) => {
-      this.setState({
-        directory: response.data,
+      .then((response) => {
+        this.setState({
+          directory: response.data,
+        })
+        this.updateDirectory(response.data);
+        this.setUser(this.state.user);
       })
-      this.updateDirectory(response.data);
-      this.setUser(this.state.user);
-    })
-    .then(res => {
-      console.log('LIST OF ALL USERS: ', this.state.directory)
-    })
+      .then(res => {
+        console.log('LIST OF ALL USERS: ', this.state.directory)
+      })
   }
 
   handleLogOut = () => {
@@ -115,23 +116,26 @@ class MainPage extends Component {
     // DIRECTORY
     if (this.state.selectedPage === 'Directory') {
       feed = (<Directory
-      listItems={this.state.directory}
-      viewProfile={this.viewProfile}
+        listItems={this.state.directory}
+        viewProfile={this.viewProfile}
       />);
     }
 
     // SEE YOUR PROFILE PAGE
     else if (this.state.selectedPage === 'Profile') {
-        feed = (<ProfilePage
-        username={this.state.user.firstname}
+      feed = (<ProfilePage
+        username={this.state.user.username}
         hometown={this.state.user.hometown}
         past={this.state.user.past}
         future={this.state.user.future}
         hobbies={this.state.user.hobbies}
         random={this.state.user.random}
         avatar={this.state.user.avatar}
+<<<<<<< HEAD
+=======
         edit={this.state.user}
         id={this.state.user.id}
+>>>>>>> acf75495fc5147bdd81027a59f5a4e82b5eea395
       />);
     }
 
@@ -139,20 +143,19 @@ class MainPage extends Component {
     else if (this.state.selectedPage === 'ViewPage') {
       feed = (
         <ProfilePage
-          username={this.state.selectedUser.firstname}
+          username={this.state.selectedUser.username}
           hometown={this.state.selectedUser.hometown}
           past={this.state.selectedUser.past}
           future={this.state.selectedUser.future}
           hobbies={this.state.selectedUser.hobbies}
           random={this.state.selectedUser.random}
           id={this.state.selectedUser.id}
-          avatar={this.state.selectedUser.avatar}
         />
       );
     }
     // NEWS FEED
     else if (this.state.selectedPage === 'Feed') {
-      feed = <NewsFeed directory={this.state.directory} newFeed={this.state.addFeed}/>;
+      feed = <NewsFeed directory={this.state.directory} />;
     }
 
     else {
@@ -160,6 +163,51 @@ class MainPage extends Component {
     }
 
     return (
+<<<<<<< HEAD
+      <div>
+        <section className="content gradient">
+          <div className="container">
+              <div className="row">
+
+                <h3 className="text-center">Welcome to Codesmith</h3>
+                <div className="line"></div>
+
+                <div className="col-md-4 box-shadow rounded-x2 padd">
+                <div className="single_box box-blue style1">
+                <img
+                  className="image-300"
+                  src={this.state.user.avatar}
+                  onClick={() => { this.changeView('Profile'); }}
+                />
+                <TextField userID={this.state.user.id} update={this.updateFeed} />
+                </div>
+                </div>
+                <div className="col-md-6 box-shadow rounded-x2 padd">
+
+                <ChatBox user={this.state.user} />
+                </div>
+              </div>
+            </div>
+        </section>
+        <section id="service" className="content section-grey">
+          <div className="container">
+            <div className="row">
+
+              <div className="col-sm-12 col-md-7 box-shadow rounded-x2 padd">
+               
+
+                <div className="nav-bar">
+                  <MuiThemeProvider>
+                    <Navbar action={this.changeTag} />
+                  </MuiThemeProvider>
+                </div>
+
+                {/* Feed Items */}
+                {feed}
+               
+              </div>
+            </div>
+=======
       <div className="main-page">
         <h1> MAIN </h1>
         <button type='submit' className='btn btn-primary rounded pi-btn-default margin-right-10' onClick={this.handleLogOut}>Log Out</button>
@@ -180,15 +228,13 @@ class MainPage extends Component {
             <MuiThemeProvider>
               <Navbar action={this.changeTag} />
             </MuiThemeProvider>
+>>>>>>> acf75495fc5147bdd81027a59f5a4e82b5eea395
           </div>
-
-          {/* Feed Items */}
-          {feed}
-
-        </div>
+        </section>
       </div>
     );
   }
 }
 
 export default MainPage;
+

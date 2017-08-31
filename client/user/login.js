@@ -20,31 +20,36 @@ class LogIn extends React.Component {
     }
 
     return (
-      <div className="login-page">
-        <table>
-          <tbody>
-            <tr>
-              <th className="header">CodesmithHub</th>
-            </tr>
-            <tr>
-              <td className="tableContent">
-                <div className="input">
-                  <form onSubmit={this.loginInfo}>
-                    <b>Email:</b> <input type="text" id="loginEmail" placeholder="email"/>
-                    <br/><br/>
-                    <b>Password:</b> <input type="password" id="loginPassword" placeholder="password"/>
-                    <br/><br/>
-                    <button type="submit">LogIn</button>
-                    <button>
-                      <Link to="/signup">Signup</Link>
-                    </button>
-                  </form>
+
+      <div>
+        <section id="login" className="content section-grey" >
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-7 col-sm-6 col-sm-offset-3">
+                <div className="register-box box-shadow rounded-x2">
+                  <h5 className="heading heading-v3"><span>Log In Form</span></h5>
+            
+                    <form className="form-inline" role="form" onSubmit={this.loginInfo}>
+                      <div className="form-group margin-right-10">
+                        <input type="email" className="form-control" id="loginEmail" placeholder="Email" />
+                      </div>
+                      <div className="form-group margin-right-10">
+                        <input type="password" className="form-control" id="loginPassword" placeholder="Password" />
+                      </div>
+                                
+                      <button type="submit" className="btn btn-primary rounded pi-btn-default btn-xlg margin-right-10">Log In</button>
+                      <button className="btn btn-primary rounded pi-btn-dark btn-xlg margin-right-10">
+                          <Link to="/signup">Sign Up</Link>
+                      </button>
+                    </form>	
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </div>
+            </div>
+          </div>
+        </section>
+=
+
+    </div>
     )
   }
 

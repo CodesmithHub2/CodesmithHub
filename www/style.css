@@ -1,10 +1,24 @@
 body {
-
+    background: #4ca1af;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4ca1af, #c4e0e5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4ca1af, #c4e0e5);
 }
 
-/* PROFILE PAGE */
+.gradient {
+    background: #4ca1af;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4ca1af, #c4e0e5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4ca1af, #c4e0e5);
+}
+
+
+/***
+ PROFILE PAGE 
 .profile-page {
-  /* border: 1px solid black; */
+  /* border: 1px solid black; 
   width: 600px;
   margin: auto;
 }
@@ -29,7 +43,7 @@ body {
   width: 400px;
   text-align: center;
   display: block;
-  /* border: 1px solid black; */
+  /* border: 1px solid black; 
 }
 
 .question {
@@ -44,7 +58,7 @@ p {
   margin-right: 4px;
 }
 
-/* DIRECTORY-ITEM */
+/* DIRECTORY-ITEM 
 .cohort-list {
   list-style: none;
   border: 1px solid black;
@@ -76,7 +90,7 @@ p {
 
 }
 
-/* MAIN PAGE */
+/* MAIN PAGE 
 .main-page {
 
 }
@@ -84,7 +98,7 @@ p {
 .prof-pic {
   float: left;
   /* height: 140px;
-  width: 100%; */
+  width: 100%; 
 
   width:100%;
   padding: auto;
@@ -98,7 +112,7 @@ p {
   border: 1px solid black;
 }
 
-/*  NAV BUTTONS  */
+/*  NAV BUTTONS  
 .button {
   color: #FFFFFF;
   background-color: #36A0E3;
@@ -111,11 +125,11 @@ p {
   color: #000000;
   background-color: #36A0E3;
   border: 1px solid #36A0E3;
-  /* border-color: #178736; */
+  /* border-color: #178736; 
   cursor: pointer;
 }
 
-/* Selected Button - not implimented */
+/* Selected Button - not implimented 
 /* .button-active {
   color: #FFFFFF;
   background-color: BLACK;
@@ -128,8 +142,8 @@ p {
   color: #fff;
   background-color: #178736;
   border-color: #178736;
-} */
-/*  END BUTTONS  */
+} 
+/*  END BUTTONS  
 
 .news-feed {
   list-style: none;
@@ -170,7 +184,7 @@ p {
 }
 
 .col-sm-2 {
-  /* border: 1px solid red; */
+  /* border: 1px solid red;
   margin: auto;
   height: 100%;
 }
@@ -180,7 +194,7 @@ p {
   height: 100%;
 }
 
-/* LOG IN / SIGN UP */
+/* LOG IN / SIGN UP
 table {
   border-collapse: collapse;
 }
@@ -226,3 +240,4 @@ background-color: blue;
   border: 1px solid #36A0E3;
   cursor: pointer;
 }
+***/
