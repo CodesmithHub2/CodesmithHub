@@ -7,6 +7,7 @@ import Navbar from './navbar.jsx'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import ChatBox from './chat/chatbox.jsx'
+import { Redirect } from 'react-router-dom'
 
 /**
  * Main will render the main page when a user logs in
@@ -25,6 +26,11 @@ class MainPage extends Component {
     selectedPage: 'Login',
     user: {},
     selectedUser: {},
+<<<<<<< HEAD
+=======
+    addFeed: null,
+    logout: false,
+>>>>>>> acf75495fc5147bdd81027a59f5a4e82b5eea395
   };
 
   changeView = (buttonName) => {
@@ -94,9 +100,19 @@ class MainPage extends Component {
       })
   }
 
+  handleLogOut = () => {
+    this.setState({
+      logout: true
+    })
+  }
   /** Render the main page based on 'selectedPage' */
   render() {
     let feed;
+    if (this.state.logout) {
+      return (
+        <Redirect to='/' />
+      )
+    }
     // DIRECTORY
     if (this.state.selectedPage === 'Directory') {
       feed = (<Directory
@@ -115,6 +131,11 @@ class MainPage extends Component {
         hobbies={this.state.user.hobbies}
         random={this.state.user.random}
         avatar={this.state.user.avatar}
+<<<<<<< HEAD
+=======
+        edit={this.state.user}
+        id={this.state.user.id}
+>>>>>>> acf75495fc5147bdd81027a59f5a4e82b5eea395
       />);
     }
 
@@ -132,7 +153,6 @@ class MainPage extends Component {
         />
       );
     }
-
     // NEWS FEED
     else if (this.state.selectedPage === 'Feed') {
       feed = <NewsFeed directory={this.state.directory} />;
@@ -143,6 +163,7 @@ class MainPage extends Component {
     }
 
     return (
+<<<<<<< HEAD
       <div>
         <section className="content gradient">
           <div className="container">
@@ -186,6 +207,28 @@ class MainPage extends Component {
                
               </div>
             </div>
+=======
+      <div className="main-page">
+        <h1> MAIN </h1>
+        <button type='submit' className='btn btn-primary rounded pi-btn-default margin-right-10' onClick={this.handleLogOut}>Log Out</button>
+        <div className="list-group col-sm-2">
+          <img
+            className="prof-pic"
+            src={this.state.user.avatar}
+            onClick={() => { this.changeView('Profile'); }}
+          />
+          <TextField userID={this.state.user.id} update={this.updateFeed}/>
+          <ChatBox user={this.state.user}/>
+        </div>
+
+        {/* main window */}
+        <div className="col-sm-10 col-sm-offset-2">
+          {/* nav bar */}
+          <div className="nav-bar">
+            <MuiThemeProvider>
+              <Navbar action={this.changeTag} />
+            </MuiThemeProvider>
+>>>>>>> acf75495fc5147bdd81027a59f5a4e82b5eea395
           </div>
         </section>
       </div>
